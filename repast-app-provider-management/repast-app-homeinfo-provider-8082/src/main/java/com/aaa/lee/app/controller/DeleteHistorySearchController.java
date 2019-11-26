@@ -2,6 +2,7 @@ package com.aaa.lee.app.controller;
 
 import com.aaa.lee.app.service.RedisService;
 import com.aaa.lee.app.service.DeleteHistorySearchService;
+import io.micrometer.core.lang.NonNullApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,11 +20,11 @@ public class DeleteHistorySearchController {
 
     /**
      * 删除某个用户的历史搜索
-     * @param redisService
+     * @param
      * @return
      */
     @GetMapping("/getdeleteHistorySearch")
-    public int getdeleteHistorySearch(RedisService redisService){
+    public Boolean getdeleteHistorySearch(){
         return deleteHistorySearchService.getdeleteHistorySearch(redisService);
     }
 }

@@ -6,7 +6,7 @@
     <result column="history_search_name" property="historySearchName" jdbcType="VARCHAR" />
     <result column="member_id" property="memberId" jdbcType="BIGINT" />
   </resultMap>
-  <delete id="deleteHistorySearch" parameterType="int">
+  <delete id="deleteHistorySearch" parameterType="long">
     DELETE FROM delete_history_search WHERE member_id=#{id}
   </delete>
 
