@@ -65,9 +65,9 @@ public class RepastFallBackFactory implements FallbackFactory<IRepastService> {
             }
 
             @Override
-            public int getdeleteHistorySearch() {
+            public Boolean getdeleteHistorySearch() {
                 System.out.println("删除某个用户的历史搜索");
-                return 0;
+                return false;
             }
 
         };

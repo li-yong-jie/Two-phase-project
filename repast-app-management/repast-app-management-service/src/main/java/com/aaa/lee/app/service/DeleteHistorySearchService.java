@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.common.Mapper;
 
-import static com.aaa.lee.app.staticstatus.StaticProperties.REDIS_KEY;
+import static com.aaa.lee.app.staticstatus.StaticProperties.*;
 
 /**
  * @Author 李永杰
@@ -32,15 +32,15 @@ public class DeleteHistorySearchService extends BaseService<DeleteHistorySearch>
      * @param redisService
      * @return
      */
-    public  int getdeleteHistorySearch(RedisService redisService){
+    public  Boolean getdeleteHistorySearch(RedisService redisService){
         String member = redisService.get(REDIS_KEY);
         try {
             Member m = JSONUtil.toObject(member, Member.class);
             if(null!=m){
                 Long id = m.getId();
                 int i = deleteHistorySearchMapper.deleteHistorySearch(id);
-                if(1>i){
-                    return i;
+                if(i>0){
+                    return true;
                 }
             }
 
@@ -49,6 +49,6 @@ public class DeleteHistorySearchService extends BaseService<DeleteHistorySearch>
             e.printStackTrace();
         }
 
-       return 0;
+       return false;
     }
 }

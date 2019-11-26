@@ -104,5 +104,5 @@ public interface IRepastService {
      * @return
      */
     @GetMapping("/getdeleteHistorySearch")
-    int getdeleteHistorySearch();
+    Boolean getdeleteHistorySearch();
 }
